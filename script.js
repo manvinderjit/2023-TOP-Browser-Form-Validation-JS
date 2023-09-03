@@ -39,15 +39,17 @@ eventListenersArray.forEach((event) => {
     });
 
     passwordField.addEventListener(event, (e) => {
-        if (passwordField.validity.valid) {
+        if (passwordField.validity.valid && (passwordField.value === confirmPasswordField.value)) {
             passwordFieldError.textContent = "";        
+            confirmPasswordFieldError.textContent = "";        
         } else {
             showError("password");
         }
     });
 
     confirmPasswordField.addEventListener(event, (e) => {
-        if (confirmPasswordField.validity.valid) {
+        if (confirmPasswordField.validity.valid && (passwordField.value === confirmPasswordField.value)) {
+            passwordFieldError.textContent = "";    
             confirmPasswordFieldError.textContent = "";        
         } else {
             showError("confirmPassword");
@@ -56,9 +58,13 @@ eventListenersArray.forEach((event) => {
  })
 
 formInput.addEventListener("submit", (e) => {
-    showError("submit");
-})
+    if(formInput.checkValidity){
 
+    }else {
+        showError("submit");
+}
+    
+})
 
 function showError(inputElement = "submit") {
 
@@ -89,15 +95,20 @@ function showError(inputElement = "submit") {
             passwordFieldError.textContent = "You need to enter a password.";
         } else if (passwordField.validity.typeMismatch) {
             passwordFieldError.textContent = "Entered value needs to match the password conditions.";
+        }else if(passwordField.value != confirmPasswordField.value){
+            passwordFieldError.textContent = "Password and confirm password must be same";
+            confirmPasswordFieldError.textContent = "Password and confirm password must be same";
         }
     }
+
     if(inputElement == "confirmPassword" || inputElement == "submit") {
-        console.log(passwordField.value);
-        console.log(confirmPasswordField.value);
         if (confirmPasswordField.validity.valueMissing) {
             confirmPasswordFieldError.textContent = "You need to enter a confirm password.";
         } else if (confirmPasswordField.validity.typeMismatch) {
             confirmPasswordFieldError.textContent = "Entered value needs to match the password";
+        } else if(passwordField.value != confirmPasswordField.value){
+            passwordFieldError.textContent = "Password and confirm password must be same";
+            confirmPasswordFieldError.textContent = "Password and confirm password must be same";
         }
     }
 
