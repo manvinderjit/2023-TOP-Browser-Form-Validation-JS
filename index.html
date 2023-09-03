@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Form Validation</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <form action="#" method="get" id="formInput" novalidate>
+        <ul>
+            <li>
+                <label for="email">Email<span id="span-email"></span></label>
+                <input type="email" id="email" name="email" required>
+                <span class="error" aria-live="polite"></span>
+            </li>
+            <li>
+                <label for="country">Country</label>
+                <input type="text" id="country" name="country" required>
+                <span class="error" aria-live="polite"></span>
+            </li>
+            <li>
+                <label for="zipcode">Zip Code</label>
+                <input type="text" id="zipcode" name="zipcode" required>
+                <span class="error" aria-live="polite"></span>
+            </li>
+            <li>
+                <label for="password">Password</label>
+                <input type="text" id="password" name="password" required>
+                <span class="error" aria-live="polite"></span>
+            </li>
+            <li>
+                <label for="c-password">Confirm Password</label>
+                <input type="text" id="c-password" name="c-password" required>
+                <span class="error" aria-live="polite"></span>
+            </li>
+        </ul>
+        <button type="submit">Submit</button>
+    </form>    
+</body>
+</html>

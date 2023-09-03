@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+li {
+    list-style: none;    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 1rem;
+}
+
+button {
+    width: 10rem;
+    padding: 0.5rem 1rem;
+}
+
+/* This is our style for the invalid fields */
+input:invalid {
+    border-color: #900;
+    background-color: #fdd;
+}
+
+input:focus:invalid {
+    outline: none;
+}
+
+/* This is our style for the valid fields */
+input:valid {
+    border-color: green;    
+}
+
+/* This is the style of our error messages */
+.error {
+    width: 100%;
+    padding: 0;
+    font-size: 80%;
+    color: saddlebrown;    
+    border-radius: 0 0 5px 5px;
+    box-sizing: border-box;
+}
+
+.error.active {
+    padding: 0.3em;
+}
